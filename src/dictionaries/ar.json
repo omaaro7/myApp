@@ -1,0 +1,241 @@
+
+{
+  "landing": {
+    "signIn": "تسجيل الدخول",
+    "getStarted": "ابدأ الآن",
+    "headline": "حوّل أخطائك إلى إنجازات",
+    "subheadline": "يساعدك QuizWise على التعلم من أخطائك. احفظ الأخطاء كأسئلة متعددة الخيارات، وأنشئ اختبارات تدريبية، وتغلب على موادك بثقة.",
+    "cta": "ابدأ التعلم مجانًا",
+    "whyTitle": "لماذا تختار QuizWise؟",
+    "whySubtitle": "طريقة أذكى للدراسة، مصممة خصيصًا لك.",
+    "feature1Title": "احفظ أخطائك",
+    "feature1Text": "حوّل أخطائك بسهولة إلى أسئلة متعددة الخيارات مصنفة. أضف شروحات وعلامات لفهم أعمق.",
+    "feature2Title": "أنشئ اختبارات مخصصة",
+    "feature2Text": "أنشئ عددًا غير محدود من الاختبارات التدريبية من بنك الأسئلة الخاص بك. قم بالتصفية حسب المادة والصعوبة والمزيد.",
+    "feature3Title": "تتبع تقدمك",
+    "feature3Text": "راجع أداءك في الاختبارات، وحدد نقاط ضعفك، وقم بتصدير أسئلتك للدراسة دون اتصال بالإنترنت.",
+    "footer": "© {year} QuizWise. جميع الحقوق محفوظة."
+  },
+  "login": {
+    "title": "مرحباً بعودتك!",
+    "description": "سجل الدخول للمتابعة إلى QuizWise.",
+    "emailLabel": "البريد الإلكتروني",
+    "passwordLabel": "كلمة المرور",
+    "forgotPassword": "هل نسيت كلمة المرور؟",
+    "signInButton": "تسجيل الدخول",
+    "googleSignIn": "تسجيل الدخول باستخدام جوجل",
+    "noAccount": "ليس لديك حساب؟",
+    "signUpLink": "أنشئ حساباً"
+  },
+  "signup": {
+    "title": "إنشاء حساب",
+    "description": "ابدأ مع QuizWise مجانًا.",
+    "fullNameLabel": "الاسم الكامل",
+    "emailLabel": "البريد الإلكتروني",
+    "passwordLabel": "كلمة المرور",
+    "confirmPasswordLabel": "تأكيد كلمة المرور",
+    "createAccountButton": "إنشاء حساب",
+    "googleSignUp": "التسجيل باستخدام جوجل",
+    "haveAccount": "لديك حساب بالفعل؟",
+    "signInLink": "تسجيل الدخول"
+  },
+  "dashboard": {
+    "welcome": "مرحباً بعودتك!",
+    "snapshot": "إليك لمحة سريعة عن تقدمك.",
+    "totalQuestions": "مجموع الأسئلة",
+    "subjects": "المواد",
+    "examsCompleted": "الاختبارات المنجزة",
+    "recentQuestionsTitle": "الأسئلة الأخيرة",
+    "recentQuestionsDescription": "نظرة على آخر الأسئلة التي أضفتها.",
+    "tableQuestion": "السؤال",
+    "tableSubject": "المادة",
+    "tableDifficulty": "الصعوبة",
+    "viewAllButton": "عرض كل الأسئلة",
+    "quickActionsTitle": "إجراءات سريعة",
+    "quickActionsDescription": "عد مباشرة إلى التعلم.",
+    "addQuestionButton": "إضافة سؤال جديد",
+    "generateExamButton": "إنشاء اختبار جديد",
+    "noRecentQuestions": "لا توجد أسئلة حديثة.",
+    "loading": "جار التحميل...",
+    "overviewTab": "نظرة عامة",
+    "resultsTab": "النتائج",
+    "timetableTab": "جدول المذاكرة"
+  },
+  "timetable": {
+    "title": "جدول المذاكرة",
+    "description": "خطط لجدول مذاكرتك الأسبوعي والتزم به.",
+    "dayLabel": "اليوم",
+    "subjectLabel": "المادة/الموضوع",
+    "subjectPlaceholder": "مثال: مراجعة الرياضيات",
+    "startLabel": "البداية",
+    "endLabel": "النهاية",
+    "notesLabel": "ملاحظات",
+    "notesPlaceholder": "ملاحظات اختيارية...",
+    "addSlot": "إضافة فترة",
+    "listTitle": "خطة الأسبوع",
+    "listDescription": "إدارة فترات المذاكرة المجدولة.",
+    "empty": "لا توجد فترات مذاكرة بعد.",
+    "noDayTasks": "لا توجد مهام لهذا اليوم.",
+    "deleteButton": "حذف",
+    "editButton": "تعديل",
+    "saveButton": "حفظ",
+    "cancelButton": "إلغاء",
+    "listView": "قائمة",
+    "tableView": "جدول",
+    "tableDay": "اليوم",
+    "tableSubject": "المادة",
+    "tableTime": "الوقت",
+    "tableNotes": "الملاحظات",
+    "dayDialogDescription": "عرض وتعديل مهام المذاكرة لهذا اليوم.",
+    "days": {
+      "sat": "السبت",
+      "sun": "الأحد",
+      "mon": "الاثنين",
+      "tue": "الثلاثاء",
+      "wed": "الأربعاء",
+      "thu": "الخميس",
+      "fri": "الجمعة"
+    }
+  },
+  "resultsPage": {
+    "title": "نتائج الاختبارات",
+    "description": "راجع أداءك في الاختبارات السابقة.",
+    "allResults": "جميع نتائج الاختبارات",
+    "allResultsDescription": "قائمة شاملة بجميع اختباراتك المكتملة.",
+    "noResults": "لم يتم العثور على نتائج اختبارات بعد. أكمل اختبارًا لرؤية نتائجك هنا.",
+    "tableDate": "التاريخ",
+    "tableSubjects": "المواد",
+    "tableDifficulty": "الصعوبة",
+    "tableScore": "النتيجة",
+    "tableCorrectAnswers": "الإجابات الصحيحة",
+    "tableActions": "الإجراءات",
+    "viewDetails": "عرض التفاصيل",
+    "filterSubject": "التصفية حسب المادة",
+    "allSubjects": "جميع المواد",
+    "filterDifficulty": "التصفية حسب الصعوبة",
+    "allDifficulties": "جميع الصعوبات"
+  },
+  "appLayout": {
+    "myAccount": "حسابي",
+    "profile": "الملف الشخصي",
+    "logout": "تسجيل الخروج",
+    "dashboard": "لوحة التحكم",
+    "questions": "الأسئلة",
+    "newExam": "اختبار جديد",
+    "timetable": "جدول المذاكرة",
+    "resultsTab": "النتائج"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "language": "اللغة",
+    "appearance": "المظهر",
+    "colorPalette": "لوحة الألوان",
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام"
+  },
+  "newQuestion": {
+    "title": "إضافة سؤال جديد",
+    "description": "قم بتوسيع قاعدة معارفك بإضافة سؤال جديد."
+  },
+  "editQuestion": {
+    "title": "تعديل السؤال",
+    "description": "صقل وتحديث تفاصيل سؤالك."
+  },
+  "question": {
+    "form": {
+        "details": {
+            "title": "تفاصيل السؤال",
+            "description": "حدد السمات الأساسية لسؤالك.",
+            "subjectLabel": "المادة",
+            "subjectPlaceholder": "اختر مادة",
+            "newSubjectOption": "إنشاء مادة جديدة",
+            "newSubjectLabel": "اسم المادة الجديدة",
+            "newSubjectPlaceholder": "مثال: أحياء",
+            "languageLabel": "اللغة",
+            "languagePlaceholder": "اختر لغة",
+            "difficultyLabel": "الصعوبة",
+            "difficultyPlaceholder": "اختر صعوبة"
+        },
+        "difficulties": {
+            "easy": "سهل",
+            "medium": "متوسط",
+            "hard": "صعب"
+        },
+        "content": {
+            "title": "المحتوى",
+            "description": "اكتب السؤال والخيارات والإجابة الصحيحة.",
+            "questionLabel": "نص السؤال",
+            "questionPlaceholder": "مثال: ما هو مركز الطاقة في الخلية؟",
+            "choicesLabel": "الخيارات والإجابة الصحيحة",
+            "choicesDescription": "أدخل الخيارات واختر الإجابة الصحيحة.",
+            "choicePlaceholder": "خيار"
+        },
+        "optional": {
+            "title": "معلومات اختيارية",
+            "description": "أضف شرحًا وعلامات لتنظيم أفضل.",
+            "explanationLabel": "الشرح",
+            "explanationPlaceholder": "اشرح لماذا الإجابة الصحيحة صحيحة...",
+            "tagsLabel": "علامات",
+            "tagsPlaceholder": "مثال: أحياء، خلايا، علوم",
+            "tagsDescription": "افصل بين العلامات بفاصلة."
+        },
+        "cancelButton": "إلغاء",
+        "saveButton": "حفظ السؤال",
+        "updateButton": "تحديث السؤال"
+    }
+  },
+  "questionsPage": {
+    "title": "أسئلتي",
+    "description": "إدارة بنك الأسئلة الشخصي الخاص بك.",
+    "addNew": "إضافة سؤال جديد",
+    "allQuestions": "كل الأسئلة",
+    "browse": "تصفح، قم بتصفية، وإدارة أسئلتك المحفوظة.",
+    "searchPlaceholder": "ابحث في الأسئلة...",
+    "filterSubject": "التصفية حسب المادة",
+    "allSubjects": "كل المواد",
+    "filterDifficulty": "التصفية حسب الصعوبة",
+    "allDifficulties": "كل الصعوبات",
+    "table": {
+      "question": "السؤال",
+      "subject": "المادة",
+      "difficulty": "الصعوبة",
+      "language": "اللغة",
+      "actions": "الإجراءات"
+    },
+    "noQuestions": "لم يتم العثور على أسئلة.",
+    "actions": {
+      "edit": "تعديل",
+      "delete": "حذف"
+    },
+    "deleteDialog": {
+      "title": "هل أنت متأكد تمامًا؟",
+      "description": "لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا إلى حذف سؤالك بشكل دائم.",
+      "cancel": "إلغاء",
+      "delete": "حذف"
+    },
+    "error": "خطأ",
+    "errorFetch": "لا يمكن جلب الأسئلة.",
+    "errorSubjects": "لا يمكن جلب المواد.",
+    "deleteSuccess": "تم حذف السؤال",
+    "deleteSuccessDesc": "تم حذف السؤال بشكل دائم.",
+    "deleteError": "لا يمكن حذف السؤال."
+  },
+  "storage": {
+    "title": "مكتبة الملفات",
+    "selectSubject": "اختر المادة",
+    "selectSubjectPlaceholder": "اختر مادة",
+    "uploadFile": "رفع ملف",
+    "files": "الملفات",
+    "noFiles": "لا توجد ملفات",
+    "openFile": "فتح الملف",
+    "markImportant": "تمييز كمهم",
+    "removeImportant": "إزالة التمييز",
+    "download": "تحميل",
+    "task": "مهمة",
+    "tasks": "مهام",
+    "tasksCount": "المهام",
+    "actions": "الإجراءات",
+    "overview": "نظرة عامة"
+  }
+}

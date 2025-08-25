@@ -1,0 +1,241 @@
+
+{
+  "landing": {
+    "signIn": "Sign In",
+    "getStarted": "Get Started",
+    "headline": "Turn Your Mistakes into Masterpieces",
+    "subheadline": "QuizWise helps you learn from your errors. Save mistakes as multiple-choice questions, generate practice exams, and conquer your subjects with confidence.",
+    "cta": "Start Learning for Free",
+    "whyTitle": "Why Choose QuizWise?",
+    "whySubtitle": "A smarter way to study, tailored by you, for you.",
+    "feature1Title": "Save Your Mistakes",
+    "feature1Text": "Easily convert your mistakes into categorized multiple-choice questions. Add explanations and tags for deeper understanding.",
+    "feature2Title": "Generate Custom Exams",
+    "feature2Text": "Create unlimited practice exams from your own question bank. Filter by subject, difficulty, and more.",
+    "feature3Title": "Track Your Progress",
+    "feature3Text": "Review your exam performance, identify weak spots, and export your questions for offline study.",
+    "footer": "© {year} QuizWise. All rights reserved."
+  },
+  "login": {
+    "title": "Welcome Back!",
+    "description": "Sign in to continue to QuizWise.",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "forgotPassword": "Forgot password?",
+    "signInButton": "Sign In",
+    "googleSignIn": "Sign in with Google",
+    "noAccount": "Don't have an account?",
+    "signUpLink": "Sign up"
+  },
+  "signup": {
+    "title": "Create an Account",
+    "description": "Get started with QuizWise for free.",
+    "fullNameLabel": "Full Name",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm Password",
+    "createAccountButton": "Create Account",
+    "googleSignUp": "Sign up with Google",
+    "haveAccount": "Already have an account?",
+    "signInLink": "Sign in"
+  },
+  "dashboard": {
+    "welcome": "Welcome back!",
+    "snapshot": "Here's a snapshot of your progress.",
+    "totalQuestions": "Total Questions",
+    "subjects": "Subjects",
+    "examsCompleted": "Exams Completed",
+    "recentQuestionsTitle": "Recent Questions",
+    "recentQuestionsDescription": "A look at the latest questions you've added.",
+    "tableQuestion": "Question",
+    "tableSubject": "Subject",
+    "tableDifficulty": "Difficulty",
+    "viewAllButton": "View All Questions",
+    "quickActionsTitle": "Quick Actions",
+    "quickActionsDescription": "Jump right back into learning.",
+    "addQuestionButton": "Add New Question",
+    "generateExamButton": "Generate a New Exam",
+    "noRecentQuestions": "No recent questions.",
+    "loading": "Loading...",
+    "overviewTab": "Overview",
+    "resultsTab": "Results",
+    "timetableTab": "Study Timetable"
+  },
+  "timetable": {
+    "title": "Study Timetable",
+    "description": "Plan your weekly study sessions and stay consistent.",
+    "dayLabel": "Day",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "e.g., Math revision",
+    "startLabel": "Start",
+    "endLabel": "End",
+    "notesLabel": "Notes",
+    "notesPlaceholder": "Optional notes...",
+    "addSlot": "Add Slot",
+    "listTitle": "Your Weekly Plan",
+    "listDescription": "Manage your scheduled study sessions.",
+    "empty": "No study slots yet.",
+    "noDayTasks": "No tasks for this day.",
+    "deleteButton": "Delete",
+    "editButton": "Edit",
+    "saveButton": "Save",
+    "cancelButton": "Cancel",
+    "listView": "List",
+    "tableView": "Table",
+    "tableDay": "Day",
+    "tableSubject": "Subject",
+    "tableTime": "Time",
+    "tableNotes": "Notes",
+    "dayDialogDescription": "View and edit today's study tasks.",
+    "days": {
+      "sat": "Saturday",
+      "sun": "Sunday",
+      "mon": "Monday",
+      "tue": "Tuesday",
+      "wed": "Wednesday",
+      "thu": "Thursday",
+      "fri": "Friday"
+    }
+  },
+  "resultsPage": {
+    "title": "Exam Results",
+    "description": "Review your past exam performances.",
+    "allResults": "All Exam Results",
+    "allResultsDescription": "A comprehensive list of all your completed exams.",
+    "noResults": "No exam results found yet. Complete an exam to see your results here.",
+    "tableDate": "Date",
+    "tableSubjects": "Subjects",
+    "tableDifficulty": "Difficulty",
+    "tableScore": "Score",
+    "tableCorrectAnswers": "Correct Answers",
+    "tableActions": "Actions",
+    "viewDetails": "View Details",
+    "filterSubject": "Filter by subject",
+    "allSubjects": "All Subjects",
+    "filterDifficulty": "Filter by difficulty",
+    "allDifficulties": "All Difficulties"
+  },
+  "appLayout": {
+    "myAccount": "My Account",
+    "profile": "Profile",
+    "logout": "Logout",
+    "dashboard": "Dashboard",
+    "questions": "Questions",
+    "newExam": "New Exam",
+    "timetable": "Study Timetable",
+    "resultsTab": "Results"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "appearance": "Appearance",
+    "colorPalette": "Color Palette",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "newQuestion": {
+    "title": "Add New Question",
+    "description": "Expand your knowledge base by adding a new question."
+  },
+  "editQuestion": {
+    "title": "Edit Question",
+    "description": "Refine and update your question details."
+  },
+  "question": {
+    "form": {
+        "details": {
+            "title": "Question Details",
+            "description": "Define the core attributes of your question.",
+            "subjectLabel": "Subject",
+            "subjectPlaceholder": "Select a subject",
+            "newSubjectOption": "Create new subject",
+            "newSubjectLabel": "New Subject Name",
+            "newSubjectPlaceholder": "e.g., Biology",
+            "languageLabel": "Language",
+            "languagePlaceholder": "Select a language",
+            "difficultyLabel": "Difficulty",
+            "difficultyPlaceholder": "Select difficulty"
+        },
+        "difficulties": {
+            "easy": "Easy",
+            "medium": "Medium",
+            "hard": "Hard"
+        },
+        "content": {
+            "title": "Content",
+            "description": "Write the question, choices, and correct answer.",
+            "questionLabel": "Question Text",
+            "questionPlaceholder": "e.g., What is the powerhouse of the cell?",
+            "choicesLabel": "Choices & Correct Answer",
+            "choicesDescription": "Enter the choices and select the correct one.",
+            "choicePlaceholder": "Choice"
+        },
+        "optional": {
+            "title": "Optional Information",
+            "description": "Add an explanation and tags for better organization.",
+            "explanationLabel": "Explanation",
+            "explanationPlaceholder": "Explain why the correct answer is right...",
+            "tagsLabel": "Tags",
+            "tagsPlaceholder": "e.g., biology, cells, science",
+            "tagsDescription": "Separate tags with commas."
+        },
+        "cancelButton": "Cancel",
+        "saveButton": "Save Question",
+        "updateButton": "Update Question"
+    }
+  },
+  "questionsPage": {
+    "title": "My Questions",
+    "description": "Manage your personal question bank.",
+    "addNew": "Add New Question",
+    "allQuestions": "All Questions",
+    "browse": "Browse, filter, and manage your saved questions.",
+    "searchPlaceholder": "Search questions...",
+    "filterSubject": "Filter by subject",
+    "allSubjects": "All Subjects",
+    "filterDifficulty": "Filter by difficulty",
+    "allDifficulties": "All Difficulties",
+    "table": {
+      "question": "Question",
+      "subject": "Subject",
+      "difficulty": "Difficulty",
+      "language": "Language",
+      "actions": "Actions"
+    },
+    "noQuestions": "No questions found.",
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "deleteDialog": {
+      "title": "Are you absolutely sure?",
+      "description": "This action cannot be undone. This will permanently delete your question.",
+      "cancel": "Cancel",
+      "delete": "Delete"
+    },
+    "error": "Error",
+    "errorFetch": "Could not fetch questions.",
+    "errorSubjects": "Could not fetch subjects.",
+    "deleteSuccess": "Question Deleted",
+    "deleteSuccessDesc": "The question has been permanently deleted.",
+    "deleteError": "Could not delete question."
+  },
+    "storage": {
+    "title": "File Storage",
+    "selectSubject": "Select Subject",
+    "selectSubjectPlaceholder": "Choose a subject",
+    "uploadFile": "Upload File",
+    "files": "Files",
+    "noFiles": "No files found",
+    "openFile": "Open File",
+    "markImportant": "Mark as Important",
+    "removeImportant": "Remove Important",
+    "download": "Download",
+    "task": "task",
+    "tasks": "tasks",
+    "tasksCount": "Tasks",
+    "actions": "Actions",
+    "overview": "Overview"
+  }
+}

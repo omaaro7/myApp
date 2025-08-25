@@ -1,0 +1,66 @@
+
+{
+  "users": {
+    "someUserId123": {
+      "questions": {
+        "questionIdABC": {
+          "uid": "someUserId123",
+          "question": "What is the powerhouse of the cell?",
+          "choices": [
+            "Nucleus",
+            "Ribosome",
+            "Mitochondrion",
+            "Cell Wall"
+          ],
+          "correctIndex": 2,
+          "explanation": "The mitochondrion is responsible for generating most of the cell's supply of adenosine triphosphate (ATP), used as a source of chemical energy.",
+          "subject": "Biology",
+          "difficulty": "easy",
+          "language": "en",
+          "tags": ["cells", "science"],
+          "createdAt": "2023-10-27T10:00:00Z",
+          "updatedAt": "2023-10-27T10:00:00Z"
+        }
+      },
+      "subjects": {
+        "subjectIdXYZ": {
+          "name": "Biology"
+        }
+      },
+      "exams": {
+        "examId789": {
+          "uid": "someUserId123",
+          "config": {
+            "subjects": ["Biology"],
+            "numQuestions": 1,
+            "difficulty": "easy"
+          },
+          "questions": [
+            {
+              "id": "questionIdABC",
+              "question": "What is the powerhouse of the cell?",
+              "choices": [
+                "Nucleus",
+                "Ribosome",
+                "Mitochondrion",
+                "Cell Wall"
+              ],
+              "correctIndex": 2,
+              "subject": "Biology",
+              "difficulty": "easy",
+              "language": "en",
+              "tags": ["cells", "science"],
+              "createdAt": "2023-10-27T10:00:00Z"
+            }
+          ],
+          "userAnswers": {
+            "questionIdABC": 2
+          },
+          "score": 100,
+          "submitted": true,
+          "createdAt": "2023-10-27T12:00:00Z"
+        }
+      }
+    }
+  }
+}

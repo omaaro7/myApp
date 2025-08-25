@@ -1,0 +1,8 @@
+{
+  "/[lang]/dashboard/page": "app/[lang]/dashboard/page.js",
+  "/[lang]/dashboard/storage/page": "app/[lang]/dashboard/storage/page.js",
+  "/[lang]/page": "app/[lang]/page.js",
+  "/api/file/[...path]/route": "app/api/file/[...path]/route.js",
+  "/api/upload/route": "app/api/upload/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
+}

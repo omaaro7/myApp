@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 24, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/omar/Desktop/an/studio/src/app/%5Blang%5D/home/page.tsx"],"sourcesContent":["import { redirect } from 'next/navigation';\r\nimport type { Locale } from '@/i18n-config';\r\n\r\nexport default async function HomeAliasPage({ params }: { params: Promise<{ lang: Locale }> }) {\r\n\tconst { lang } = await params;\r\n\tredirect(`/${lang}`);\r\n} "],"names":[],"mappings":";;;AAAA;AAAA;;AAGe,eAAe,cAAc,EAAE,MAAM,EAAyC;IAC5F,MAAM,EAAE,IAAI,EAAE,GAAG,MAAM;IACvB,CAAA,GAAA,qLAAA,CAAA,WAAQ,AAAD,EAAE,CAAC,CAAC,EAAE,MAAM;AACpB","debugId":null}}]
+}
