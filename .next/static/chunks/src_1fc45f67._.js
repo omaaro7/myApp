@@ -1291,15 +1291,20 @@ function AudioRecorder({ onRecordingComplete, onCancel, disabled }) {
             chunksRef.current = [];
             mediaRecorder.ondataavailable = (e)=>{
                 if (e.data.size > 0) {
+                    console.log('Audio chunk received, size:', e.data.size);
                     chunksRef.current.push(e.data);
                 }
             };
             mediaRecorder.onstop = ()=>{
+                console.log('Recording stopped, total chunks:', chunksRef.current.length);
                 const blob = new Blob(chunksRef.current, {
                     type: 'audio/webm'
                 });
+                console.log('Created blob, size:', blob.size, 'type:', blob.type);
+                const audioUrl = URL.createObjectURL(blob);
+                console.log('Created audio URL:', audioUrl);
                 setAudioBlob(blob);
-                setAudioUrl(URL.createObjectURL(blob));
+                setAudioUrl(audioUrl);
                 stream.getTracks().forEach((track)=>track.stop());
                 stopTimer();
                 setRecordingTime(0);
@@ -1413,12 +1418,12 @@ function AudioRecorder({ onRecordingComplete, onCancel, disabled }) {
                             children: "Preview Recording"
                         }, void 0, false, {
                             fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                            lineNumber: 196,
+                            lineNumber: 201,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                        lineNumber: 195,
+                        lineNumber: 200,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1434,12 +1439,12 @@ function AudioRecorder({ onRecordingComplete, onCancel, disabled }) {
                                     controls: true
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                    lineNumber: 200,
+                                    lineNumber: 205,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                lineNumber: 199,
+                                lineNumber: 204,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1453,7 +1458,7 @@ function AudioRecorder({ onRecordingComplete, onCancel, disabled }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                        lineNumber: 210,
+                                        lineNumber: 215,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1468,20 +1473,20 @@ function AudioRecorder({ onRecordingComplete, onCancel, disabled }) {
                                                         className: "h-4 w-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                                        lineNumber: 219,
+                                                        lineNumber: 224,
                                                         columnNumber: 32
                                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__["Play"], {
                                                         className: "h-4 w-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                                        lineNumber: 219,
+                                                        lineNumber: 224,
                                                         columnNumber: 64
                                                     }, this),
                                                     isPlaying ? 'Pause' : 'Play'
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                                lineNumber: 214,
+                                                lineNumber: 219,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1492,30 +1497,30 @@ function AudioRecorder({ onRecordingComplete, onCancel, disabled }) {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                                    lineNumber: 227,
+                                                    lineNumber: 232,
                                                     columnNumber: 30
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$volume$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Volume2$3e$__["Volume2"], {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                                    lineNumber: 227,
+                                                    lineNumber: 232,
                                                     columnNumber: 64
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                                lineNumber: 222,
+                                                lineNumber: 227,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                        lineNumber: 213,
+                                        lineNumber: 218,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                lineNumber: 209,
+                                lineNumber: 214,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1527,7 +1532,7 @@ function AudioRecorder({ onRecordingComplete, onCancel, disabled }) {
                                         children: "Discard"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                        lineNumber: 233,
+                                        lineNumber: 238,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1538,42 +1543,42 @@ function AudioRecorder({ onRecordingComplete, onCancel, disabled }) {
                                                 className: "h-4 w-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                                lineNumber: 237,
+                                                lineNumber: 242,
                                                 columnNumber: 17
                                             }, this),
                                             "Save Recording"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                        lineNumber: 236,
+                                        lineNumber: 241,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                                lineNumber: 232,
+                                lineNumber: 237,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                        lineNumber: 198,
+                        lineNumber: 203,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                lineNumber: 194,
+                lineNumber: 199,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/storage/audio-recorder.tsx",
-            lineNumber: 193,
+            lineNumber: 198,
             columnNumber: 7
         }, this);
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-        onClick: startRecording,
+        onClick: isRecording ? stopRecording : startRecording,
         disabled: isPreparing || disabled,
         variant: "outline",
         className: "gap-2",
@@ -1582,19 +1587,19 @@ function AudioRecorder({ onRecordingComplete, onCancel, disabled }) {
                 className: "h-4 w-4 animate-spin"
             }, void 0, false, {
                 fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                lineNumber: 255,
+                lineNumber: 260,
                 columnNumber: 9
             }, this) : isRecording ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Square$3e$__["Square"], {
                 className: "h-4 w-4"
             }, void 0, false, {
                 fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                lineNumber: 257,
+                lineNumber: 262,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$mic$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Mic$3e$__["Mic"], {
                 className: "h-4 w-4"
             }, void 0, false, {
                 fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                lineNumber: 259,
+                lineNumber: 264,
                 columnNumber: 9
             }, this),
             isRecording ? 'Stop Recording' : 'Record Audio',
@@ -1603,13 +1608,13 @@ function AudioRecorder({ onRecordingComplete, onCancel, disabled }) {
                 children: formatTime(recordingTime)
             }, void 0, false, {
                 fileName: "[project]/src/components/storage/audio-recorder.tsx",
-                lineNumber: 263,
+                lineNumber: 268,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/storage/audio-recorder.tsx",
-        lineNumber: 248,
+        lineNumber: 253,
         columnNumber: 5
     }, this);
 }
@@ -4662,6 +4667,8 @@ function StoragePageClient({ lang, dictionary }) {
     const [isWhiteboardOpen, setIsWhiteboardOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [whiteboardData, setWhiteboardData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [openedFile, setOpenedFile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [fileToDelete, setFileToDelete] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [showDeleteConfirm, setShowDeleteConfirm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const t = dictionary?.storage || {
         title: 'مكتبة الملفات',
         selectSubject: 'اختر المادة',
@@ -5036,6 +5043,44 @@ function StoragePageClient({ lang, dictionary }) {
             });
         }
     };
+    const onFileDelete = (fileId, fileName)=>{
+        const file = files.find((f)=>f.id === fileId);
+        if (file) {
+            setFileToDelete(file);
+            setShowDeleteConfirm(true);
+        }
+    };
+    const handleDeleteConfirm = async ()=>{
+        if (!user || !fileToDelete) return;
+        const fileDocRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["db"], 'users', user.uid, 'files', fileToDelete.id);
+        const apiUrl = `/api/file${fileToDelete.url.replace('/uploads', '')}`;
+        try {
+            // Delete from local server storage
+            const response = await fetch(apiUrl, {
+                method: 'DELETE'
+            });
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Failed to delete file from storage');
+            }
+            // Delete from Firestore
+            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["deleteDoc"])(fileDocRef);
+            toast({
+                title: 'File deleted',
+                description: `"${fileToDelete.name}" has been deleted.`
+            });
+        } catch (error) {
+            console.error('Error deleting file:', error);
+            toast({
+                title: 'Error deleting file',
+                description: error.message,
+                variant: 'destructive'
+            });
+        } finally{
+            setShowDeleteConfirm(false);
+            setFileToDelete(null);
+        }
+    };
     const handleFilterChange = (filters)=>{
         if (!user) return;
         const baseQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["db"], 'users', user.uid, 'files'), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm2017$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["orderBy"])('createdAt', 'desc'));
@@ -5089,12 +5134,12 @@ function StoragePageClient({ lang, dictionary }) {
                 className: "h-8 w-8 animate-spin"
             }, void 0, false, {
                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                lineNumber: 479,
+                lineNumber: 526,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-            lineNumber: 478,
+            lineNumber: 525,
             columnNumber: 7
         }, this);
     }
@@ -5115,7 +5160,7 @@ function StoragePageClient({ lang, dictionary }) {
                                     children: t.selectSubject
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                    lineNumber: 489,
+                                    lineNumber: 536,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -5127,12 +5172,12 @@ function StoragePageClient({ lang, dictionary }) {
                                                 placeholder: t.selectSubjectPlaceholder
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                                lineNumber: 492,
+                                                lineNumber: 539,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                            lineNumber: 491,
+                                            lineNumber: 538,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -5141,24 +5186,24 @@ function StoragePageClient({ lang, dictionary }) {
                                                     children: s
                                                 }, s, false, {
                                                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                                    lineNumber: 496,
+                                                    lineNumber: 543,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                            lineNumber: 494,
+                                            lineNumber: 541,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                    lineNumber: 490,
+                                    lineNumber: 537,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                            lineNumber: 488,
+                            lineNumber: 535,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -5167,14 +5212,14 @@ function StoragePageClient({ lang, dictionary }) {
                             children: "+ New subject"
                         }, void 0, false, {
                             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                            lineNumber: 501,
+                            lineNumber: 548,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "flex-1"
                         }, void 0, false, {
                             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                            lineNumber: 502,
+                            lineNumber: 549,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5199,14 +5244,14 @@ function StoragePageClient({ lang, dictionary }) {
                                             className: "h-4 w-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                            lineNumber: 519,
+                                            lineNumber: 566,
                                             columnNumber: 15
                                         }, this),
                                         t.uploadFile
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                    lineNumber: 504,
+                                    lineNumber: 551,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$storage$2f$audio$2d$recorder$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AudioRecorder"], {
@@ -5214,7 +5259,7 @@ function StoragePageClient({ lang, dictionary }) {
                                     disabled: uploading || !selectedSubject
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                    lineNumber: 522,
+                                    lineNumber: 569,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$storage$2f$whiteboard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Whiteboard"], {
@@ -5225,7 +5270,7 @@ function StoragePageClient({ lang, dictionary }) {
                                     onOpenChange: setIsWhiteboardOpen
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                    lineNumber: 526,
+                                    lineNumber: 573,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$storage$2f$text$2d$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TextInput"], {
@@ -5233,19 +5278,19 @@ function StoragePageClient({ lang, dictionary }) {
                                     disabled: uploading || !selectedSubject
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                    lineNumber: 533,
+                                    lineNumber: 580,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                            lineNumber: 503,
+                            lineNumber: 550,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                    lineNumber: 487,
+                    lineNumber: 534,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -5261,7 +5306,7 @@ function StoragePageClient({ lang, dictionary }) {
                     className: "hidden"
                 }, void 0, false, {
                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                    lineNumber: 540,
+                    lineNumber: 587,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$storage$2f$file$2d$filters$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FileFilters"], {
@@ -5269,7 +5314,7 @@ function StoragePageClient({ lang, dictionary }) {
                     onFilterChange: handleFilterChange
                 }, void 0, false, {
                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                    lineNumber: 553,
+                    lineNumber: 600,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -5281,12 +5326,12 @@ function StoragePageClient({ lang, dictionary }) {
                                 children: t.title
                             }, void 0, false, {
                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                lineNumber: 560,
+                                lineNumber: 607,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                            lineNumber: 559,
+                            lineNumber: 606,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -5297,38 +5342,39 @@ function StoragePageClient({ lang, dictionary }) {
                                         className: "h-12 w-12 mb-2"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 565,
+                                        lineNumber: 612,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: t.noFiles
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 566,
+                                        lineNumber: 613,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                lineNumber: 564,
+                                lineNumber: 611,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$storage$2f$file$2d$grid$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FileGrid"], {
                                 files: files,
-                                onFileClick: handleFileClick
+                                onFileClick: handleFileClick,
+                                onFileDelete: onFileDelete
                             }, void 0, false, {
                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                lineNumber: 569,
+                                lineNumber: 616,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                            lineNumber: 562,
+                            lineNumber: 609,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                    lineNumber: 558,
+                    lineNumber: 605,
                     columnNumber: 9
                 }, this),
                 showFileDialog && selectedFile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -5342,20 +5388,20 @@ function StoragePageClient({ lang, dictionary }) {
                                         children: selectedFile.name
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 578,
+                                        lineNumber: 625,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogDescription"], {
                                         children: selectedFile.subject
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 579,
+                                        lineNumber: 626,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                lineNumber: 577,
+                                lineNumber: 624,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5369,12 +5415,12 @@ function StoragePageClient({ lang, dictionary }) {
                                             className: "w-full"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                            lineNumber: 584,
+                                            lineNumber: 631,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 583,
+                                        lineNumber: 630,
                                         columnNumber: 19
                                     }, this) : selectedFile.type.startsWith('video/') ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("video", {
                                         src: selectedFile.url,
@@ -5382,7 +5428,7 @@ function StoragePageClient({ lang, dictionary }) {
                                         className: "w-full rounded-lg"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 587,
+                                        lineNumber: 634,
                                         columnNumber: 19
                                     }, this) : selectedFile.type.startsWith('audio/') ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("audio", {
                                         src: selectedFile.url,
@@ -5390,7 +5436,7 @@ function StoragePageClient({ lang, dictionary }) {
                                         className: "w-full"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 589,
+                                        lineNumber: 636,
                                         columnNumber: 19
                                     }, this) : selectedFile.type === 'application/pdf' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "h-[70vh] w-full",
@@ -5399,18 +5445,18 @@ function StoragePageClient({ lang, dictionary }) {
                                             className: "h-full w-full rounded-lg border"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                            lineNumber: 592,
+                                            lineNumber: 639,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 591,
+                                        lineNumber: 638,
                                         columnNumber: 19
                                     }, this) : selectedFile.type.startsWith('text/') ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$storage$2f$text$2d$preview$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TextPreview"], {
                                         url: selectedFile.url
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 595,
+                                        lineNumber: 642,
                                         columnNumber: 19
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex justify-center",
@@ -5425,24 +5471,24 @@ function StoragePageClient({ lang, dictionary }) {
                                                         className: "mr-2 h-4 w-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                                        lineNumber: 600,
+                                                        lineNumber: 647,
                                                         columnNumber: 25
                                                     }, this),
                                                     t.openFile
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                                lineNumber: 599,
+                                                lineNumber: 646,
                                                 columnNumber: 23
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                            lineNumber: 598,
+                                            lineNumber: 645,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 597,
+                                        lineNumber: 644,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5454,7 +5500,7 @@ function StoragePageClient({ lang, dictionary }) {
                                                 children: selectedFile.isImportant ? t.removeImportant : t.markImportant
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                                lineNumber: 607,
+                                                lineNumber: 654,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -5466,36 +5512,102 @@ function StoragePageClient({ lang, dictionary }) {
                                                     children: t.download
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                                    lineNumber: 614,
+                                                    lineNumber: 661,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                                lineNumber: 613,
+                                                lineNumber: 660,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 606,
+                                        lineNumber: 653,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                lineNumber: 581,
+                                lineNumber: 628,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                        lineNumber: 576,
+                        lineNumber: 623,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                    lineNumber: 575,
+                    lineNumber: 622,
                     columnNumber: 11
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialog"], {
+                    open: showDeleteConfirm,
+                    onOpenChange: setShowDeleteConfirm,
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogContent"], {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogHeader"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogTitle"], {
+                                        children: "Are you sure?"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
+                                        lineNumber: 674,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogDescription"], {
+                                        children: [
+                                            'This action cannot be undone. This will permanently delete the file "',
+                                            fileToDelete?.name,
+                                            '".'
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
+                                        lineNumber: 675,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
+                                lineNumber: 673,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogFooter"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogCancel"], {
+                                        onClick: ()=>setFileToDelete(null),
+                                        children: "Cancel"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
+                                        lineNumber: 680,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogAction"], {
+                                        onClick: handleDeleteConfirm,
+                                        children: "Delete"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
+                                        lineNumber: 681,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
+                                lineNumber: 679,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
+                        lineNumber: 672,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
+                    lineNumber: 671,
+                    columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialog"], {
                     open: showSubjectAdvice,
@@ -5508,20 +5620,20 @@ function StoragePageClient({ lang, dictionary }) {
                                         children: "Select a subject"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 627,
+                                        lineNumber: 689,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogDescription"], {
                                         children: "Please select a subject before uploading a file. This helps organize your files."
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 628,
+                                        lineNumber: 690,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                lineNumber: 626,
+                                lineNumber: 688,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogFooter"], {
@@ -5530,7 +5642,7 @@ function StoragePageClient({ lang, dictionary }) {
                                         children: "OK"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 633,
+                                        lineNumber: 695,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogAction"], {
@@ -5541,24 +5653,24 @@ function StoragePageClient({ lang, dictionary }) {
                                         children: "Create subject"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 634,
+                                        lineNumber: 696,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                lineNumber: 632,
+                                lineNumber: 694,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                        lineNumber: 625,
+                        lineNumber: 687,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                    lineNumber: 624,
+                    lineNumber: 686,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -5572,20 +5684,20 @@ function StoragePageClient({ lang, dictionary }) {
                                         children: "New subject"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 649,
+                                        lineNumber: 711,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogDescription"], {
                                         children: "Create a subject to organize your files."
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 650,
+                                        lineNumber: 712,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                lineNumber: 648,
+                                lineNumber: 710,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5597,7 +5709,7 @@ function StoragePageClient({ lang, dictionary }) {
                                         placeholder: "Enter subject name"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 653,
+                                        lineNumber: 715,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5609,7 +5721,7 @@ function StoragePageClient({ lang, dictionary }) {
                                                 children: "Cancel"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                                lineNumber: 659,
+                                                lineNumber: 721,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -5617,45 +5729,45 @@ function StoragePageClient({ lang, dictionary }) {
                                                 children: "Create"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                                lineNumber: 660,
+                                                lineNumber: 722,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                        lineNumber: 658,
+                                        lineNumber: 720,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                                lineNumber: 652,
+                                lineNumber: 714,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                        lineNumber: 647,
+                        lineNumber: 709,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-                    lineNumber: 646,
+                    lineNumber: 708,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-            lineNumber: 486,
+            lineNumber: 533,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/[lang]/dashboard/storage/storage-page-client.tsx",
-        lineNumber: 485,
+        lineNumber: 532,
         columnNumber: 5
     }, this);
 }
-_s(StoragePageClient, "s5+youbV2MOInrINqOmlC0eJV78=", false, function() {
+_s(StoragePageClient, "E6xygQcNeWESjv5Z6jnaQ5OUT5I=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$firebase$2d$hooks$2f$auth$2f$dist$2f$index$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuthState"],
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useToast"]

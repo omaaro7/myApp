@@ -9,7 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, db } from '@/lib/firebase';
+import { auth, db, storage } from '@/lib/firebase';
 import { Loader2, Upload } from 'lucide-react';
 import type { Locale } from '@/i18n-config';
 import { FileGrid } from '@/components/storage/file-grid';
@@ -17,6 +17,7 @@ import { FileFilters } from '@/components/storage/file-filters';
 import { AudioRecorder } from '@/components/storage/audio-recorder';
 import { Whiteboard } from '@/components/storage/whiteboard';
 import { TextInput } from '@/components/storage/text-input';
+import { CustomAudioPlayer } from '@/components/storage/custom-audio-player';
 import { useToast } from '@/hooks/use-toast';
 import {
   collection,
@@ -28,7 +29,9 @@ import {
   updateDoc,
   doc,
   serverTimestamp,
+  deleteDoc,
 } from 'firebase/firestore';
+
 import AppLayout from '@/components/app-layout';
 import { getDictionary } from '@/lib/get-dictionary';
 import { TextPreview } from '../../../../components/storage/text-preview';
@@ -67,6 +70,8 @@ export default function StoragePageClient({ lang, dictionary }: StoragePageClien
   const [isWhiteboardOpen, setIsWhiteboardOpen] = React.useState(false);
   const [whiteboardData, setWhiteboardData] = React.useState<any>(null);
   const [openedFile, setOpenedFile] = React.useState<StorageFile | null>(null);
+  const [fileToDelete, setFileToDelete] = React.useState<StorageFile | null>(null);
+  const [showDeleteConfirm, setShowDeleteConfirm] = React.useState(false);
 
   const t = dictionary?.storage || {
     title: 'مكتبة الملفات',
@@ -321,8 +326,6 @@ export default function StoragePageClient({ lang, dictionary }: StoragePageClien
     }
   };
 
-  
-
   const handleTextInputSave = async (blob: Blob, fileName: string) => {
     if (!user) return;
     let subjectToUse = selectedSubject;
@@ -398,6 +401,51 @@ export default function StoragePageClient({ lang, dictionary }: StoragePageClien
         description: error.message,
         variant: 'destructive',
       });
+    }
+  };
+
+  const onFileDelete = (fileId: string, fileName: string) => {
+    const file = files.find((f) => f.id === fileId);
+    if (file) {
+      setFileToDelete(file);
+      setShowDeleteConfirm(true);
+    }
+  };
+
+  const handleDeleteConfirm = async () => {
+    if (!user || !fileToDelete) return;
+
+    const fileDocRef = doc(db, 'users', user.uid, 'files', fileToDelete.id);
+    const apiUrl = `/api/file${fileToDelete.url.replace('/uploads', '')}`;
+
+    try {
+      // Delete from local server storage
+      const response = await fetch(apiUrl, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to delete file from storage');
+      }
+
+      // Delete from Firestore
+      await deleteDoc(fileDocRef);
+
+      toast({
+        title: 'File deleted',
+        description: `"${fileToDelete.name}" has been deleted.`,
+      });
+    } catch (error: any) {
+      console.error('Error deleting file:', error);
+      toast({
+        title: 'Error deleting file',
+        description: error.message,
+        variant: 'destructive',
+      });
+    } finally {
+      setShowDeleteConfirm(false);
+      setFileToDelete(null);
     }
   };
 
@@ -566,7 +614,7 @@ export default function StoragePageClient({ lang, dictionary }: StoragePageClien
                 <p>{t.noFiles}</p>
               </div>
             ) : (
-              <FileGrid files={files} onFileClick={handleFileClick} />
+              <FileGrid files={files} onFileClick={handleFileClick} onFileDelete={onFileDelete} />
             )}
           </CardContent>
         </Card>
@@ -620,6 +668,21 @@ export default function StoragePageClient({ lang, dictionary }: StoragePageClien
             </DialogContent>
           </Dialog>
         )}
+
+        <AlertDialog open={showDeleteConfirm} onOpenChange={setShowDeleteConfirm}>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete the file "{fileToDelete?.name}".
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel onClick={() => setFileToDelete(null)}>Cancel</AlertDialogCancel>
+              <AlertDialogAction onClick={handleDeleteConfirm}>Delete</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
 
         <AlertDialog open={showSubjectAdvice} onOpenChange={setShowSubjectAdvice}>
           <AlertDialogContent>

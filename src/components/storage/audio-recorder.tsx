@@ -29,10 +29,13 @@ export function AudioRecorder({ onRecordingComplete, onCancel, disabled }: Audio
   const chunksRef = React.useRef<Blob[]>([]);
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
   const { toast } = useToast();
+  const [duration, setDuration] = React.useState(0);
+  const [currentTime, setCurrentTime] = React.useState(0);
+  const [volume, setVolume] = React.useState(1);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
+    const secs = Math.floor(seconds % 60);
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
@@ -80,7 +83,6 @@ export function AudioRecorder({ onRecordingComplete, onCancel, disabled }: Audio
         setAudioUrl(URL.createObjectURL(blob));
         stream.getTracks().forEach(track => track.stop());
         stopTimer();
-        setRecordingTime(0);
         setIsRecording(false);
         setIsPaused(false);
         setShowPreview(true);
@@ -159,6 +161,35 @@ export function AudioRecorder({ onRecordingComplete, onCancel, disabled }: Audio
 
   const handleAudioEnded = () => {
     setIsPlaying(false);
+    setCurrentTime(0);
+  };
+
+  const handleLoadedMetadata = () => {
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  const handleSeek = (value: number[]) => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = value[0];
+      setCurrentTime(value[0]);
+    }
+  };
+
+  const handleVolumeChange = (value: number[]) => {
+    if (audioRef.current) {
+      const newVolume = value[0];
+      audioRef.current.volume = newVolume;
+      setVolume(newVolume);
+      setIsMuted(newVolume === 0);
+    }
   };
 
   const handleSaveRecording = () => {
@@ -196,36 +227,52 @@ export function AudioRecorder({ onRecordingComplete, onCancel, disabled }: Audio
             <DialogTitle>Preview Recording</DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
-            <div className="flex items-center justify-center p-4 bg-muted rounded-lg">
-              <audio
-                ref={audioRef}
-                src={audioUrl || undefined}
-                onEnded={handleAudioEnded}
-                className="w-full"
-                controls
-              />
-            </div>
-            
-            <div className="flex items-center justify-between">
-              <div className="text-sm text-muted-foreground">
-                Duration: {formatTime(recordingTime)}
-              </div>
-              <div className="flex gap-2">
+            <audio
+              ref={audioRef}
+              src={audioUrl || undefined}
+              onEnded={handleAudioEnded}
+              onLoadedMetadata={handleLoadedMetadata}
+              onTimeUpdate={handleTimeUpdate}
+              className="hidden"
+            />
+            <div className="p-4 bg-muted rounded-lg space-y-4">
+              <div className="flex items-center gap-4">
                 <Button
                   variant="outline"
-                  size="sm"
+                  size="icon"
                   onClick={isPlaying ? pausePreview : playPreview}
+                  className="rounded-full h-12 w-12"
                 >
-                  {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-                  {isPlaying ? 'Pause' : 'Play'}
+                  {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
                 </Button>
+                <div className="flex-1 space-y-1">
+                  <Slider
+                    value={[currentTime]}
+                    max={duration}
+                    step={0.1}
+                    onValueChange={handleSeek}
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground">
+                    <span>{formatTime(currentTime)}</span>
+                    <span>{formatTime(duration)}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
                 <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setIsMuted(!isMuted)}
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => handleVolumeChange([volume === 0 ? 0.5 : 0])}
                 >
-                  {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+                  {volume === 0 || isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
                 </Button>
+                <Slider
+                  value={[volume]}
+                  max={1}
+                  step={0.05}
+                  onValueChange={handleVolumeChange}
+                  className="w-24"
+                />
               </div>
             </div>
 
@@ -246,7 +293,7 @@ export function AudioRecorder({ onRecordingComplete, onCancel, disabled }: Audio
 
   return (
     <Button
-      onClick={startRecording}
+      onClick={isRecording ? stopRecording : startRecording}
       disabled={isPreparing || disabled}
       variant="outline"
       className="gap-2"

@@ -1,7 +1,7 @@
 // src\app\api\file\[...path]\route.ts
 import { NextResponse } from 'next/server';
 import { createReadStream } from 'fs';
-import { stat } from 'fs/promises';
+import { stat, unlink } from 'fs/promises';
 import path from 'path';
 
 export async function GET(
@@ -50,6 +50,37 @@ export async function GET(
     console.error('Error serving file:', error);
     return NextResponse.json(
       { error: 'Error serving file' },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(
+  request: Request,
+  { params }: { params: { path: string[] } }
+) {
+  try {
+    // Reconstruct the file path from the URL parameters
+    const filePath = path.join(process.cwd(), 'uploads', ...params.path);
+
+    // Check if file exists
+    await stat(filePath);
+
+    // Delete the file
+    await unlink(filePath);
+
+    return NextResponse.json({ message: 'File deleted successfully' });
+
+  } catch (error: any) {
+    if (error.code === 'ENOENT') {
+      return NextResponse.json(
+        { error: 'File not found' },
+        { status: 404 }
+      );
+    }
+    console.error('Error deleting file:', error);
+    return NextResponse.json(
+      { error: 'Error deleting file' },
       { status: 500 }
     );
   }
