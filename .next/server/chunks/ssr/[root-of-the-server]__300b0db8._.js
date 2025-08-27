@@ -170,13 +170,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2
 ;
 ;
 const firebaseConfig = {
-    "projectId": ("TURBOPACK compile-time value", "quizwise-t8v1g") || "quizwise-t8v1g",
-    "appId": ("TURBOPACK compile-time value", "1:484235234110:web:a5fe535505fe054791ba6f") || "1:484235234110:web:a5fe535505fe054791ba6f",
-    "storageBucket": ("TURBOPACK compile-time value", "quizwise-t8v1g.appspot.com") || "quizwise-t8v1g.appspot.com",
-    "apiKey": ("TURBOPACK compile-time value", "AIzaSyCt-GLtX5HEsmlBsktEPJ-BiBg8dJusC0Y") || "AIzaSyCt-GLtX5HEsmlBsktEPJ-BiBg8dJusC0Y",
-    "authDomain": ("TURBOPACK compile-time value", "quizwise-t8v1g.firebaseapp.com") || "quizwise-t8v1g.firebaseapp.com",
+    "projectId": process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "quizwise-t8v1g",
+    "appId": process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:484235234110:web:a5fe535505fe054791ba6f",
+    "storageBucket": process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "quizwise-t8v1g.appspot.com",
+    "apiKey": process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyCt-GLtX5HEsmlBsktEPJ-BiBg8dJusC0Y",
+    "authDomain": process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "quizwise-t8v1g.firebaseapp.com",
     "measurementId": "",
-    "messagingSenderId": ("TURBOPACK compile-time value", "484235234110") || "484235234110"
+    "messagingSenderId": process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "484235234110"
 };
 // Initialize Firebase
 const app = !(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm2017$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["getApps"])().length ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm2017$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["initializeApp"])(firebaseConfig) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm2017$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["getApp"])();

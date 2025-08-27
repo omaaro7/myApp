@@ -1,7 +1,5 @@
 {
-  "/[lang]/dashboard/storage/page": "app/[lang]/dashboard/storage/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/file/[...path]/route": "app/api/file/[...path]/route.js",
-  "/api/upload/route": "app/api/upload/route.js",
+  "/[lang]/dashboard/page": "app/[lang]/dashboard/page.js",
+  "/[lang]/page": "app/[lang]/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js"
 }
